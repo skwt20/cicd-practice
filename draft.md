@@ -10,7 +10,7 @@ CI/CD初学者が「自分でCIを構築できる状態」になること
 
 - CI/CDの基本概念を理解している
 - GitHub Actions / GitLab CIでCIを動かせる
-- TerraformをCIに組み込める
+- TerraformをCIに組み込み、検証からデプロイまで自動化できる
 
 ### 前提条件
 
@@ -89,7 +89,7 @@ CI/CD初学者が「自分でCIを構築できる状態」になること
     - manual実行
       - workflow_dispatch
     - branch制御（mainブランチのみ）
-- Step 6：Runner
+- Step 6：実行基盤（Runner）
   - Runnerの種類
     - GitHub-hosted runner
     - Self-hosted runner
@@ -144,7 +144,7 @@ CI/CD初学者が「自分でCIを構築できる状態」になること
     - terraform apply
     - manual実行
     - branch制御（mainブランチのみ）
-- Step 6：Runner
+- Step 6：実行基盤（Runner）
   - Runnerの種類
   - Runnerの導入
 
@@ -160,18 +160,36 @@ CI/CD初学者が「自分でCIを構築できる状態」になること
 cicd-practice/
 ├── README.md
 ├── docs/
-│   ├── 00-overview.md
-│   ├── 01-setup.md
+│   ├── 00-overview.md                      # 基礎編：CI/CDとは
+│   ├── 01-setup.md                         # 共通：環境準備
 │   ├── github-actions/
-│   │   ├── 01-intro.md
+│   │   ├── 01-setup.md                     # Step 1: 環境準備（GitHub Actions個別）
+│   │   ├── 02-intro.md                     # Step 2: 基礎編
+│   │   ├── 03-advanced.md                  # Step 3: 応用編
+│   │   ├── 04-ci.md                        # Step 4: 実践編（CI）
+│   │   ├── 05-cd.md                        # Step 5: 実践編（CD）
+│   │   └── 06-runner.md                    # Step 6: 実行基盤（Runner）
 │   ├── gitlab-ci/
-│   │   ├── 01-intro.md
+│   │   ├── 01-setup.md                     # Step 1: 環境準備（GitLab CI個別）
+│   │   ├── 02-intro.md                     # Step 2: 基礎編
+│   │   ├── 03-advanced.md                  # Step 3: 応用編
+│   │   ├── 04-ci.md                        # Step 4: 実践編（CI）
+│   │   ├── 05-cd.md                        # Step 5: 実践編（CD）
+│   │   └── 06-runner.md                    # Step 6: 実行基盤（Runner）
 │   └── terraform/
-│       ├── sample/
-│       └── exercises/
+│       ├── sample/                         # Terraformサンプルコード
+│       └── exercises/                      # Terraform演習課題
 └── answers/
-    ├── github-actions/
-    └── gitlab-ci/
+    ├── github-actions/                     # GitHub Actions 解答例
+    │   ├── 02-intro/
+    │   ├── 03-advanced/
+    │   ├── 04-ci/
+    │   ├── 05-cd/
+    │   └── 06-runner/
+    └── gitlab-ci/                          # GitLab CI 解答例
+        ├── 02-intro/
+        ├── 03-advanced/
+        ├── 04-ci/
+        ├── 05-cd/
+        └── 06-runner/
 ```
-
-
