@@ -10,7 +10,7 @@
 
 そのため、AWS アカウントを 1 つ用意してください。
 
-- [AWS アカウント作成](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html?utm_source=chatgpt.com)
+- [AWS アカウント作成](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html)
 
 ## 作業環境準備
 
@@ -18,7 +18,7 @@
 
 最低限、Git クライアントとシェル環境が必要です。Git は公式ドキュメントに従ってインストールしてください。
 
-- [Git のインストール](https://git-scm.com/install/?utm_source=chatgpt.com)
+- [Git のインストール](https://git-scm.com/install/)
 
 シェル環境は、普段使っているもので問題ありません。たとえば、Windows であれば Git Bash や WSL、macOS / Linux であれば標準のターミナルを利用できます。
 

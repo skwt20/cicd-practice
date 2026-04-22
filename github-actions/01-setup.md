@@ -40,8 +40,8 @@ AWS マネジメントコンソールで IAM を開き、OIDC プロバイダー
 
 参考:
 
-- [Create an OpenID Connect (OIDC) identity provider in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html?utm_source=chatgpt.com)
-- [Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services?utm_source=chatgpt.com)
+- [Create an OpenID Connect (OIDC) identity provider in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)
+- [Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
 
 ### 作成する IAM ロール
 
@@ -96,7 +96,8 @@ repo:YOUR_GITHUB_USER_OR_ORG/YOUR_REPOSITORY_NAME:ref:refs/heads/main
 
 Step 1 では、GitHub Actions から AWS に認証できることを確認するために `aws sts get-caller-identity` を実行します。
 
-そのため、この段階では **接続確認用のロール** として作成して構いません。Terraform の実行に必要な権限は、後続のステップで必要に応じて追加してください。
+このステップでは、まず AWS に接続できることを確認できれば十分です。  
+Terraform の実行に必要な権限については、後続のステップで必要に応じて案内します。
 
 参考:
 
