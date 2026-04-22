@@ -97,7 +97,7 @@ repo:YOUR_GITHUB_USER_OR_ORG/YOUR_REPOSITORY_NAME:ref:refs/heads/main
 Step 1 では、GitHub Actions から AWS に認証できることを確認するために `aws sts get-caller-identity` を実行します。
 
 このステップでは、まず AWS に接続できることを確認できれば十分です。  
-Terraform の実行に必要な権限については、後続のステップで必要に応じて案内します。
+Terraform の実行に必要な権限は、後続のステップで必要に応じて追加してください。
 
 参考:
 
