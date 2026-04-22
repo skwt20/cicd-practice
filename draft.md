@@ -161,6 +161,7 @@ cicd-practice/
 ├── README.md
 ├── docs/
 │   ├── 00-overview.md                      # 基礎編：CI/CDとは
+│   ├── 01-setup.md                         # 共通：環境準備
 │   ├── github-actions/
 │   │   ├── 01-setup.md                     # Step 1: 環境準備（GitHub Actions個別）
 │   │   ├── 02-intro.md                     # Step 2: 基礎編
