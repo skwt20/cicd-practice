@@ -2,21 +2,19 @@
 
 このステップでは、GitHub Actions の基本構造を理解し、最小の workflow を自分で作成できるようになることを目指します。
 
-ここで扱うのは、GitHub Actions を使ううえでまず押さえたい要素です。
+GitHub Actions の workflow は、リポジトリ内の .github/workflows ディレクトリに置いた YAML ファイルで定義します。workflow には、起動のきっかけとなる on、実行単位である jobs、job の中で順番に実行される steps が含まれます。
 
-- `runs-on` を用いた実行環境の指定
+このステップでは、次のような基本要素を順番に確認していきます。
+
+- runs-on を用いた実行環境の指定
 - workflow の基本構造
-  - `on`
-  - `jobs`
-  - `steps`
+  - on
+  - jobs
+  - steps
 - workflow の作成
-- job の実行順制御
-  - `needs`
+- needs を用いた job の実行順制御
 
-GitHub Actions の workflow は、リポジトリ内の `.github/workflows` ディレクトリに置いた YAML ファイルで定義します。  
-workflow には、起動のきっかけとなる `on`、実行単位である `jobs`、job の中で順番に実行される `steps` が含まれます。
-
-まずは細かな書き方を覚えることよりも、**イベントをきっかけに job が動き、その中で step が順番に実行される**という全体像をつかむことを意識してください。
+まずは細かな書き方を覚えることよりも、イベントをきっかけに job が動き、その中で step が順番に実行されるという全体像をつかむことを意識してください。
 
 ## 2-1. workflow を作成する
 
