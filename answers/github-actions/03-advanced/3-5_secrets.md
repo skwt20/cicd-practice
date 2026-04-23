@@ -1,0 +1,61 @@
+# 解答例：3-5. secrets を使って機密情報を扱う
+
+## 解答
+
+### 1. リポジトリに secret を作成する
+
+GitHub のリポジトリページから **Settings > Secrets and variables > Actions > Secrets タブ** を開き、以下の secret を作成します。
+
+- Name: `SAMPLE_SECRET`
+- Value: 任意の文字列（例：`my-secret-value`）
+
+### 2. workflow を修正する
+
+`.github/workflows/hello.yml` を以下の内容に修正します。
+
+```yaml
+name: Hello GitHub Actions
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run first job
+        run: echo "first job"
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: Run second job
+        run: echo "second job"
+      - name: Conditional step
+        if: needs.job1.result == 'success'
+        run: echo "conditional step"
+      - name: Run on push
+        if: github.event_name == 'push'
+        run: echo "run on push"
+      - name: Run on workflow_dispatch
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "run on workflow_dispatch"
+      - name: Run on main
+        if: github.ref == 'refs/heads/main'
+        run: echo "run on main"
+      - name: Print variable
+        run: echo "${{ vars.SAMPLE_MESSAGE }}"
+      - name: Use secret
+        env:
+          MY_SECRET: ${{ secrets.SAMPLE_SECRET }}
+        run: echo "secret is set"
+```
+
+## 解説
+
+- `secrets` context を使うと、リポジトリに設定した Actions secrets を参照できます。
+- secret の値を `env` で環境変数として受け取り、step の中で利用します。
+- secret の値を直接 `echo` するとマスクされますが、意図しない漏洩を防ぐために値そのものを出力しないようにしてください。
+- `echo "secret is set"` のように、値を使ったことを示すメッセージを出力するのが一般的なパターンです。
