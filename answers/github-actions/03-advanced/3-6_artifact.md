@@ -2,7 +2,7 @@
 
 ## 解答
 
-`.github/workflows/hello.yml` を以下の内容に修正します。
+`.github/workflows/hello.yml` を以下の内容に書き換えます。
 
 ```yaml
 name: Hello GitHub Actions
@@ -12,36 +12,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  job1:
+  hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Run first job
-        run: echo "first job"
-
-  job2:
-    runs-on: ubuntu-latest
-    needs: job1
-    steps:
-      - name: Run second job
-        run: echo "second job"
-      - name: Conditional step
-        if: needs.job1.result == 'success'
-        run: echo "conditional step"
-      - name: Run on push
-        if: github.event_name == 'push'
-        run: echo "run on push"
-      - name: Run on workflow_dispatch
-        if: github.event_name == 'workflow_dispatch'
-        run: echo "run on workflow_dispatch"
-      - name: Run on main
-        if: github.ref == 'refs/heads/main'
-        run: echo "run on main"
-      - name: Print variable
-        run: echo "${{ vars.SAMPLE_MESSAGE }}"
-      - name: Use secret
-        env:
-          MY_SECRET: ${{ secrets.SAMPLE_SECRET }}
-        run: echo "secret is set"
       - name: Create result file
         run: echo "workflow completed" > result.txt
       - name: Upload artifact

@@ -2,7 +2,7 @@
 
 ## 解答
 
-`.github/workflows/hello.yml` を以下の内容に修正します。
+`.github/workflows/hello.yml` を以下の内容に書き換えます。
 
 ```yaml
 name: Hello GitHub Actions
@@ -12,21 +12,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  job1:
+  hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Run first job
-        run: echo "first job"
-
-  job2:
-    runs-on: ubuntu-latest
-    needs: job1
-    steps:
-      - name: Run second job
-        run: echo "second job"
-      - name: Conditional step
-        if: needs.job1.result == 'success'
-        run: echo "conditional step"
       - name: Run on push
         if: github.event_name == 'push'
         run: echo "run on push"
@@ -37,8 +25,8 @@ jobs:
 
 ## 解説
 
+- `on` に `push` と `workflow_dispatch` を両方書くことで、push と手動実行の両方をトリガーにできます。
 - `github.event_name` で、workflow を起動したイベントの名前を参照できます。
 - `push` で起動した場合は `github.event_name` が `'push'` になります。
 - `workflow_dispatch`（手動実行）で起動した場合は `github.event_name` が `'workflow_dispatch'` になります。
 - それぞれの `if` 条件が異なるため、イベントに応じて実行される step が切り替わります。
-- `github` は GitHub Actions が提供する context の 1 つで、実行環境に関する情報を持っています。
