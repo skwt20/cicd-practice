@@ -8,7 +8,7 @@
 name: Hello GitHub Actions
 
 on:
-  pull_request:
+  push:
 
 jobs:
   job1:
