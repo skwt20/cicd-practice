@@ -2,22 +2,22 @@
 
 ## 解答
 
-`.github/workflows/hello.yml` を以下の内容に書き換えます。
+`.github/workflows/3-2-event-condition.yml` を以下の内容で新規に作成します。
 
 ```yaml
-name: Hello GitHub Actions
+name: 3-2 event condition
 
 on:
-  push:
+  pull_request:
   workflow_dispatch:
 
 jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Run on push
-        if: github.event_name == 'push'
-        run: echo "run on push"
+      - name: Run on pull_request
+        if: github.event_name == 'pull_request'
+        run: echo "run on pull_request"
       - name: Run on workflow_dispatch
         if: github.event_name == 'workflow_dispatch'
         run: echo "run on workflow_dispatch"
@@ -25,8 +25,8 @@ jobs:
 
 ## 解説
 
-- `on` に `push` と `workflow_dispatch` を両方書くことで、push と手動実行の両方をトリガーにできます。
+- `on` に `pull_request` と `workflow_dispatch` を両方書くことで、Pull Request と手動実行の両方をトリガーにできます。
 - `github.event_name` で、workflow を起動したイベントの名前を参照できます。
-- `push` で起動した場合は `github.event_name` が `'push'` になります。
+- `pull_request` で起動した場合は `github.event_name` が `'pull_request'` になります。
 - `workflow_dispatch`（手動実行）で起動した場合は `github.event_name` が `'workflow_dispatch'` になります。
 - それぞれの `if` 条件が異なるため、イベントに応じて実行される step が切り替わります。

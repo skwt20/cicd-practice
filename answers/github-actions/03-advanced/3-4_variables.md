@@ -1,4 +1,4 @@
-# 解答例：3-4. variables を使って値を外出しする
+# 解答例：3-4. variables を使って値を外部で管理する
 
 ## 解答
 
@@ -10,15 +10,14 @@ GitHub のリポジトリページから **Settings > Secrets and variables > Ac
 | ---------------- | ----------------------------------------- |
 | `SAMPLE_MESSAGE` | 任意の文字列（例：`Hello from variable`） |
 
-### 2. workflow を修正する
+### 2. workflow を新規に作成する
 
-`.github/workflows/hello.yml` を以下の内容に書き換えます。
+`.github/workflows/3-4-variables.yml` を以下の内容で新規に作成します。
 
 ```yaml
-name: Hello GitHub Actions
+name: 3-4 variables
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:

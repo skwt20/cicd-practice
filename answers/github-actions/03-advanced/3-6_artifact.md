@@ -2,13 +2,12 @@
 
 ## 解答
 
-`.github/workflows/hello.yml` を以下の内容に書き換えます。
+`.github/workflows/3-6-artifact.yml` を以下の内容で新規に作成します。
 
 ```yaml
-name: Hello GitHub Actions
+name: 3-6 artifact
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:

@@ -9,15 +9,14 @@ GitHub のリポジトリページから **Settings > Secrets and variables > Ac
 - Name: `SAMPLE_SECRET`
 - Value: 任意の文字列（例：`my-secret-value`）
 
-### 2. workflow を修正する
+### 2. workflow を新規に作成する
 
-`.github/workflows/hello.yml` を以下の内容に書き換えます。
+`.github/workflows/3-5-secrets.yml` を以下の内容で新規に作成します。
 
 ```yaml
-name: Hello GitHub Actions
+name: 3-5 secrets
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:

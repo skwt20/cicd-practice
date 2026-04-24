@@ -2,13 +2,12 @@
 
 ## 解答
 
-`.github/workflows/hello.yml` を以下の内容に書き換えます。
+`.github/workflows/3-3-branch-condition.yml` を以下の内容で新規に作成します。
 
 ```yaml
-name: Hello GitHub Actions
+name: 3-3 branch condition
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
@@ -25,5 +24,5 @@ jobs:
 - `github.ref` で、workflow が動いているブランチやタグの参照名を取得できます。
 - ブランチの場合、`refs/heads/<ブランチ名>` という形式になります。
 - main ブランチの場合は `github.ref == 'refs/heads/main'` という条件になります。
-- main 以外のブランチで push すると `Run on main` の step はスキップされます。
-- main ブランチで push または手動実行すると `Run on main` の step が実行されます。
+- main 以外のブランチで手動実行すると `Run on main` の step はスキップされます。
+- main ブランチで手動実行すると `Run on main` の step が実行されます。
