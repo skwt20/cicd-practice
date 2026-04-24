@@ -163,12 +163,18 @@ cicd-practice/
 │   ├── 00-overview.md                      # 基礎編：CI/CDとは
 │   ├── 01-setup.md                         # 共通：環境準備
 │   ├── github-actions/
-│   │   ├── 01-setup.md                     # Step 1: 環境準備（GitHub Actions個別）
-│   │   ├── 02-intro.md                     # Step 2: 基礎編
-│   │   ├── 03-advanced.md                  # Step 3: 応用編
-│   │   ├── 04-ci.md                        # Step 4: 実践編（CI）
-│   │   ├── 05-cd.md                        # Step 5: 実践編（CD）
-│   │   └── 06-runner.md                    # Step 6: 実行基盤（Runner）
+│   │   ├── 01-setup/
+│   │   │   └── README.md                 # Step 1: 環境準備（GitHub Actions個別）
+│   │   ├── 02-basic/
+│   │   │   └── README.md                 # Step 2: 基礎編
+│   │   ├── 03-advanced/
+│   │   │   └── README.md                   # Step 3: 応用編
+│   │   ├── 04-ci/
+│   │   │   └── README.md                   # Step 4: 実践編（CI）
+│   │   ├── 05-cd/
+│   │   │   └── README.md                   # Step 5: 実践編（CD）
+│   │   └── 06-runner/
+│   │       └── README.md                   # Step 6: 実行基盤（Runner）
 │   ├── gitlab-ci/
 │   │   ├── 01-setup.md                     # Step 1: 環境準備（GitLab CI個別）
 │   │   ├── 02-intro.md                     # Step 2: 基礎編
@@ -181,7 +187,7 @@ cicd-practice/
 │       └── exercises/                      # Terraform演習課題
 └── answers/
     ├── github-actions/                     # GitHub Actions 解答例
-    │   ├── 02-intro/
+    │   ├── 02-basic/
     │   ├── 03-advanced/
     │   ├── 04-ci/
     │   ├── 05-cd/
