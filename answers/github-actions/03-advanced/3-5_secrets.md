@@ -26,12 +26,12 @@ jobs:
       - name: Use secret
         env:
           MY_SECRET: ${{ secrets.SAMPLE_SECRET }}
-        run: echo "secret is set"
+        run: echo "$MY_SECRET"
 ```
 
 ## 解説
 
 - `secrets` context を使うと、リポジトリに設定した Actions secrets を参照できます。
-- secret の値を `env` で環境変数として受け取り、step の中で利用します。
-- secret の値を直接 `echo` するとマスクされますが、意図しない漏洩を防ぐために値そのものを出力しないようにしてください。
-- `echo "secret is set"` のように、値を使ったことを示すメッセージを出力するのが一般的なパターンです。
+- secret の値を `env` で環境変数として受け取り、`echo` で出力します。
+- GitHub Actions は secret の値をログ上で自動的にマスクするため、実行ログには `***` と表示されます。
+- secret の値そのものがログに残らないことを、この動作で確認できます。
