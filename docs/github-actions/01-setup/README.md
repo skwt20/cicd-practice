@@ -185,3 +185,7 @@ jobs:
 このステップのゴールは、GitHub Actions の workflow を作成する前提となる GitHub リポジトリと AWS 側の認証設定が整っていることです。
 
 以降のステップでは、ここで準備した GitHub リポジトリと AWS 連携設定を使って workflow を作成し、GitHub Actions 上で CI/CD を実装していきます。
+
+---
+
+次のステップ：[Step 2: 基礎編](../02-basic/README.md)
