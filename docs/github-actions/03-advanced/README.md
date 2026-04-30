@@ -25,4 +25,5 @@ Step 2 では workflow の基本構造を扱いましたが、このステップ
 | 3-3 | [ブランチによって実行する step を変える](./3-3-branch-condition.md) |
 | 3-4 | [variables を使って値を外部で管理する](./3-4-variables.md)          |
 | 3-5 | [secrets を使って機密情報を扱う](./3-5-secrets.md)                  |
-| 3-6 | [artifact を保存する](./3-6-artifact.md)                            |
+| 3-6 | [job 間で値を受け渡す](./3-6-job-output.md)                         |
+| 3-7 | [artifact を保存する](./3-7-artifact.md)                            |

@@ -1,11 +1,11 @@
-# 解答例：3-6. artifact を保存する
+# 解答例：3-7. artifact を保存する
 
 ## 解答
 
-`.github/workflows/3-6-artifact.yml` を以下の内容で新規に作成します。
+`.github/workflows/3-7-artifact.yml` を以下の内容で新規に作成します。
 
 ```yaml
-name: 3-6 artifact
+name: 3-7 artifact
 
 on:
   workflow_dispatch:

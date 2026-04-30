@@ -22,4 +22,5 @@
 | 3-3. ブランチによって実行する step を変える | [3-3_branch-condition.md](./github-actions/03-advanced/3-3_branch-condition.md) |
 | 3-4. variables を使って値を外部で管理する   | [3-4_variables.md](./github-actions/03-advanced/3-4_variables.md)               |
 | 3-5. secrets を使って機密情報を扱う         | [3-5_secrets.md](./github-actions/03-advanced/3-5_secrets.md)                   |
-| 3-6. artifact を保存する                    | [3-6_artifact.md](./github-actions/03-advanced/3-6_artifact.md)                 |
+| 3-6. job 間で値を受け渡す                   | [3-6_job-output.md](./github-actions/03-advanced/3-6_job-output.md)             |
+| 3-7. artifact を保存する                    | [3-7_artifact.md](./github-actions/03-advanced/3-7_artifact.md)                 |
