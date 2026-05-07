@@ -1,0 +1,42 @@
+# 4-5. terraform plan で変更内容を確認する
+
+> **前提**: この課題は [4-4. terraform init / validate で構成を検証する](./4-4-validate.md) を完了していることを前提とします。
+
+`terraform plan` は、現在のコードを適用した場合にインフラにどのような変更が加わるかを事前に確認するコマンドです。実際にはリソースを作成・変更しません。
+
+CI に `plan` を組み込むことで、変更内容をレビュー前に確認できるようになります。
+
+また、`plan` の結果をファイルに保存（`-out` オプション）しておくと、Step 5 の `apply` で同じ変更を再現できます。
+
+## プラクティス
+
+4-4 で作成した workflow をベースに、`4-5-plan.yml` として新規に作成してください。
+
+条件は次のとおりです。
+
+- 4-4 の構成に加えて、以下の step を追加する
+- `terraform plan` を実行する step を追加する
+  - 実行ディレクトリは `terraform/` にする
+  - `bucket_name` 変数を `-var` で渡す（値は `vars.BUCKET_NAME` から参照する）
+  - plan 結果を `-out=tfplan` でファイルに保存する
+- step の順番は `fmt → init → validate → plan` にする
+
+> ヒント:
+>
+> - `terraform plan -var="bucket_name=${{ vars.BUCKET_NAME }}" -out=tfplan` のように書きます
+> - GitHub の Web UI で `BUCKET_NAME` variable を事前に設定してください（グローバルで一意な名前にする必要があります）
+> - `-out=tfplan` で保存したファイルは `terraform apply tfplan` で使います（Step 5 で扱います）
+
+> 必要に応じて、次の公式ドキュメントを参照してください。
+>
+> - [terraform plan](https://developer.hashicorp.com/terraform/cli/commands/plan)
+
+## 確認
+
+- 変更を push し、Actions から手動実行する
+- `terraform plan` が成功することを確認する
+- CI のログに作成予定のリソース（S3 バケット）が表示されることを確認する
+
+---
+
+次のプラクティス：[4-6. Pull Request で CI を実行する](./4-6-pr-trigger.md)
