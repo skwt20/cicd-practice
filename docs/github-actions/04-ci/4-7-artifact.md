@@ -4,8 +4,9 @@
 
 4-5 で `terraform plan -out=tfplan` によって plan 結果をファイルに保存しましたが、CI 環境は実行後に破棄されるため、そのままでは後から参照できません。
 
-この課題では、Step 3（3-7）で学んだ `artifact` を使って `tfplan` ファイルを保存します。  
-保存した plan ファイルは、Step 5 の `terraform apply` で再利用します。
+この課題では、Step 3（3-7）で学んだ `artifact` を使って `tfplan` ファイルを保存します。
+ここでは、CI 実行後でも plan 結果を確認できるようにすることを目的とします。
+保存した plan ファイルを `apply` で利用する方法は Step 5 で扱います。
 
 > **補足: job 分割について**  
 > `tfplan` ファイルは `plan` step が実行されたランナー上にのみ存在するため、別 job からは直接参照できません。  

@@ -6,7 +6,8 @@
 
 CI に `plan` を組み込むことで、変更内容をレビュー前に確認できるようになります。
 
-また、`plan` の結果をファイルに保存（`-out` オプション）しておくと、Step 5 の `apply` で同じ変更を再現できます。
+また、`plan` の結果をファイルに保存（`-out` オプション）しておくと、plan 結果をファイルとして扱えるようになります。  
+保存した plan ファイルを `apply` で利用する方法は Step 5 で扱います。
 
 ## プラクティス
 
@@ -25,7 +26,8 @@ CI に `plan` を組み込むことで、変更内容をレビュー前に確認
 >
 > - `terraform plan -var="bucket_name=${{ vars.BUCKET_NAME }}" -out=tfplan` のように書きます
 > - GitHub の Web UI で `BUCKET_NAME` variable を事前に設定してください（グローバルで一意な名前にする必要があります）
-> - `-out=tfplan` で保存したファイルは `terraform apply tfplan` で使います（Step 5 で扱います）
+> - `-out=tfplan` で plan 結果をファイルとして保存できます
+> - 保存した plan ファイルを `apply` で利用する方法は Step 5 で扱います
 
 > 必要に応じて、次の公式ドキュメントを参照してください。
 >

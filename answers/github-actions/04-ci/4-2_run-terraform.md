@@ -1,4 +1,3 @@
-````markdown
 # 解答例：4-2. CI から Terraform を実行できるようにする
 
 ## 解答
@@ -32,4 +31,3 @@ jobs:
 - `hashicorp/setup-terraform@v3` は HashiCorp 公式の Action で、指定したバージョンの Terraform をインストールします。
 - `vars.TF_VERSION` は Step 3（3-4）で学んだ `variables` を利用しています。workflow を変えずに Terraform バージョンを管理できます。
 - AWS 認証情報は Step 3（3-5）で学んだ `secrets` を利用しています。job レベルの `env` に設定することで、すべての step で自動的に参照されます。
-````

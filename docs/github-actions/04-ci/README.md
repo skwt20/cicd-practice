@@ -17,11 +17,14 @@ CI（継続的インテグレーション）とは、コードの変更をリポ
 > 各課題では、その課題で確認したい内容だけを含む workflow を新しいファイルとして作成してください。
 > Terraform コードは、このリポジトリの `terraform/` ディレクトリを使います。
 
+このプラクティスでは、Terraform backend は local backend を使用します。  
+S3 backend などの remote backend は扱わず、CI 上で Terraform の `fmt` / `validate` / `plan` を実行する流れを確認することに集中します。
+
 ## プラクティス一覧
 
 | #   | タイトル                                                           |
 | --- | ------------------------------------------------------------------ |
-| 4-1 | [Terraform コードを確認する](./4-1-setup-terraform.md)             |
+| 4-1 | [Terraform コードを準備する](./4-1-setup-terraform.md)             |
 | 4-2 | [CI から Terraform を実行できるようにする](./4-2-run-terraform.md) |
 | 4-3 | [terraform fmt でフォーマットを確認する](./4-3-fmt.md)             |
 | 4-4 | [terraform init / validate で構成を検証する](./4-4-validate.md)    |

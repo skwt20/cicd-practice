@@ -1,4 +1,3 @@
-````markdown
 # 解答例：4-7. plan 結果を artifact として保存する
 
 ## 解答
@@ -15,7 +14,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  plan:
+  terraform:
     runs-on: ubuntu-latest
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -52,7 +51,6 @@ jobs:
 ## 解説
 
 - `tfplan` ファイルは `terraform plan` が実行されたランナー上にのみ存在するため、別 job からは直接参照できません。そのため、`terraform plan` と `actions/upload-artifact@v4` を同じ job 内で続けて実行しています。
-- artifact の名前は `tfplan` で、Step 5 の `apply` job で `actions/download-artifact@v4` を使ってダウンロードして利用します。
+- artifact の名前は `tfplan` です。保存しておくことで、workflow 実行後でも plan 結果のファイルを確認できます。
 
-このワークフローが Step 4 の完成形です。Step 5 では、この `tfplan` artifact を使って `terraform apply` を実行します。
-````
+このワークフローが Step 4 の完成形です。Step 5 では、保存した plan ファイルを `terraform apply` で利用する方法を扱います。

@@ -1,4 +1,3 @@
-````markdown
 # 解答例：4-3. terraform fmt でフォーマットを確認する
 
 ## 解答
@@ -34,4 +33,3 @@ jobs:
 - `terraform fmt -check` はフォーマットが正しければ終了コード 0、崩れていれば 1 を返します。
 - GitHub Actions では終了コードが 0 以外の場合に step が失敗します。これにより、フォーマット崩れを CI で検出できます。
 - `working-directory: terraform` を指定することで、`terraform/` ディレクトリで step を実行します。
-````

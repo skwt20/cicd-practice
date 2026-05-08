@@ -10,6 +10,9 @@ CI から Terraform コマンドを実行するには、まず実行環境に Te
 また、AWS に接続するには認証情報が必要です。これは Step 3 で学んだ `secrets` を使って安全に管理します。  
 Terraform のバージョンは `variables`（`vars` context）で管理することで、workflow を変更せずに外部から更新できます。
 
+この課題では、AWS 認証情報を workflow に設定しますが、AWS への接続確認までは行いません。  
+実際に AWS 認証情報が正しく利用できるかどうかは、後続の `terraform plan` を実行する課題で確認します。
+
 ## プラクティス
 
 次の条件を満たす workflow を `4-2-run-terraform.yml` として新規に作成してください。
