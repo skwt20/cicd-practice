@@ -1,6 +1,6 @@
 # 4-2. CI から Terraform を実行できるようにする
 
-> **前提**: この課題は [4-1. Terraform コードを確認する](./4-1-setup-terraform.md) を完了していることを前提とします。
+> **前提**: この課題は [4-1. Terraform コードを準備する](./4-1-setup-terraform.md) を完了していることを前提とします。
 
 CI から Terraform コマンドを実行するには、まず実行環境に Terraform をインストールする必要があります。
 
