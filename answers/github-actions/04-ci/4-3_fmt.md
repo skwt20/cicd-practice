@@ -5,7 +5,7 @@
 `.github/workflows/4-3-fmt.yml` を以下の内容で新規に作成します。
 
 ```yaml
-name: 4-3 terraform fmt
+name: terraform ci
 
 on:
   workflow_dispatch:
@@ -33,3 +33,7 @@ jobs:
 - `terraform fmt -check` はフォーマットが正しければ終了コード 0、崩れていれば 1 を返します。
 - GitHub Actions では終了コードが 0 以外の場合に step が失敗します。これにより、フォーマット崩れを CI で検出できます。
 - `working-directory: terraform` を指定することで、`terraform/` ディレクトリで step を実行します。
+
+---
+
+[目次に戻る](../../README.md)

@@ -5,7 +5,7 @@
 `.github/workflows/4-2-run-terraform.yml` を以下の内容で新規に作成します。
 
 ```yaml
-name: 4-2 run terraform
+name: terraform ci
 
 on:
   workflow_dispatch:
@@ -31,3 +31,7 @@ jobs:
 - `hashicorp/setup-terraform@v3` は HashiCorp 公式の Action で、指定したバージョンの Terraform をインストールします。
 - `vars.TF_VERSION` は Step 3（3-4）で学んだ `variables` を利用しています。workflow を変えずに Terraform バージョンを管理できます。
 - AWS 認証情報は Step 3（3-5）で学んだ `secrets` を利用しています。job レベルの `env` に設定することで、すべての step で自動的に参照されます。
+
+---
+
+[目次に戻る](../../README.md)

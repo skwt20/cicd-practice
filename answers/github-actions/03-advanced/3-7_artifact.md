@@ -30,3 +30,7 @@ jobs:
 - `uses` を使うと、GitHub Marketplace に公開された Action を workflow の中で利用できます。
 - `name` に artifact の表示名、`path` に保存するファイルのパスを指定します。
 - 保存した artifact は GitHub の Actions 実行結果画面の **Artifacts** セクションからダウンロードできます。
+
+---
+
+[目次に戻る](../../README.md)

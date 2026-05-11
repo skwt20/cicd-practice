@@ -5,7 +5,7 @@
 `.github/workflows/4-7-artifact.yml` を以下の内容で新規に作成します。
 
 ```yaml
-name: 4-7 terraform ci with artifact
+name: terraform ci
 
 on:
   pull_request:
@@ -54,3 +54,7 @@ jobs:
 - artifact の名前は `tfplan` です。保存しておくことで、workflow 実行後でも plan 結果のファイルを確認できます。
 
 このワークフローが Step 4 の完成形です。Step 5 では、保存した plan ファイルを `terraform apply` で利用する方法を扱います。
+
+---
+
+[目次に戻る](../../README.md)

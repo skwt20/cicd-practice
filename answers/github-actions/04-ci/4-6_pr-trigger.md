@@ -5,7 +5,7 @@
 `.github/workflows/4-6-pr-trigger.yml` を以下の内容で新規に作成します。
 
 ```yaml
-name: 4-6 terraform ci pr
+name: terraform ci
 
 on:
   pull_request:
@@ -48,3 +48,7 @@ jobs:
 - `pull_request` に `branches: [main]` を指定することで、main ブランチへの PR のときだけ CI が実行されます（Step 3（3-3）のブランチ条件の応用）。
 - `workflow_dispatch` も残すことで、手動実行でも CI を確認できます。
 - `if: github.event_name == 'workflow_dispatch'` によって、手動実行時だけ `manual execution` が表示されます（Step 3（3-2）のイベント条件の応用）。
+
+---
+
+[目次に戻る](../../README.md)

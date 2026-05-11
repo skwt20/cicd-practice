@@ -23,3 +23,7 @@ jobs:
 - `runs-on: ubuntu-latest` を job に追加することで、Ubuntu の最新環境で job が実行されます。
 - `runs-on` は job ごとに指定が必要です。
 - push 後に GitHub の Actions タブを開くと、workflow の実行結果を確認できます。
+
+---
+
+[目次に戻る](../../README.md)

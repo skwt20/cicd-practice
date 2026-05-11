@@ -5,7 +5,7 @@
 `.github/workflows/4-4-validate.yml` を以下の内容で新規に作成します。
 
 ```yaml
-name: 4-4 terraform validate
+name: terraform ci
 
 on:
   workflow_dispatch:
@@ -39,3 +39,7 @@ jobs:
 - `terraform init` は provider のダウンロードと初期化を行います。`validate` や `plan` の前に必ず実行が必要です。
 - `terraform validate` はコードの構文と整合性を確認します。AWS API コールは行わないため、構文ミスを素早く検出できます。
 - step は `fmt → init → validate` の順に実行されます。前の step が失敗した場合、後続 step は実行されません。
+
+---
+
+[目次に戻る](../../README.md)

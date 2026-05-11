@@ -25,3 +25,7 @@ jobs:
 - `on` を `push` から `pull_request` に変更することで、Pull Request の作成・更新をきっかけに workflow が実行されるようになります。
 - `push` の記述を削除しているため、単純な push では workflow は実行されません。
 - 動作確認は、新しいブランチを作成して push し、Pull Request を作成することで行えます。
+
+---
+
+[目次に戻る](../../README.md)

@@ -5,7 +5,7 @@
 `.github/workflows/4-5-plan.yml` を以下の内容で新規に作成します。
 
 ```yaml
-name: 4-5 terraform plan
+name: terraform ci
 
 on:
   workflow_dispatch:
@@ -42,3 +42,7 @@ jobs:
 - `terraform plan` は実際にはリソースを作成・変更せず、変更内容を事前に確認できます。
 - `-var="bucket_name=..."` で変数を渡しています。`vars.BUCKET_NAME` は Step 3（3-4）の `variables` です。
 - `-out=tfplan` で plan 結果をファイルに保存します。このファイルは 4-7 で artifact として保存し、Step 5 の `apply` で使います。
+
+---
+
+[目次に戻る](../../README.md)
