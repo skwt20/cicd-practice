@@ -4,7 +4,9 @@
 
 `terraform init` は Terraform の初期化コマンドです。provider プラグインのダウンロードや backend の設定を行います。CI で `terraform validate` や `terraform plan` を実行する前に必ず必要です。
 
-`terraform validate` はコードの構文や設定の整合性を検証するコマンドです。AWS API コールは行わず、コードレベルの問題を検出できます。
+`terraform validate` はコードの構文や設定の整合性を検証するコマンドです。実際の AWS リソースに対する変更内容を確認するものではなく、主にコードレベルの問題を検出します。
+
+このプラクティスでは local backend を使用するため、S3 backend などの remote backend の初期化は扱いません。
 
 ## プラクティス
 
@@ -20,7 +22,8 @@
 
 > ヒント:
 >
-> - `terraform init` は provider のダウンロードと初期化を行います。AWS API コールは行いません（job レベルの `env` に設定した AWS 認証情報は、後続の `plan` などで自動的に参照されます）
+> - `terraform init` は provider のダウンロードと backend の初期化を行います
+> - このプラクティスでは local backend を使用するため、S3 backend などの remote backend は扱いません
 > - `terraform validate` は `init` の後に実行してください
 
 > 必要に応じて、次の公式ドキュメントを参照してください。

@@ -10,14 +10,19 @@ name: terraform ci
 on:
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: ${{ vars.TF_VERSION }}
@@ -27,10 +32,10 @@ jobs:
 
 ## 解説
 
-- `actions/checkout@v4` でリポジトリのコードを CI 環境にチェックアウトします。
+- `permissions` で `id-token: write` を設定することで、OIDC トークンを取得できるようになります。Step 1 と同じ設定です。
+- `aws-actions/configure-aws-credentials` で OIDC 認証を行います。`secrets.AWS_ROLE_ARN` には Step 1 で作成した IAM ロールの ARN を設定します。
 - `hashicorp/setup-terraform@v3` は HashiCorp 公式の Action で、指定したバージョンの Terraform をインストールします。
 - `vars.TF_VERSION` は Step 3（3-4）で学んだ `variables` を利用しています。workflow を変えずに Terraform バージョンを管理できます。
-- AWS 認証情報は Step 3（3-5）で学んだ `secrets` を利用しています。job レベルの `env` に設定することで、すべての step で自動的に参照されます。
 
 ---
 
