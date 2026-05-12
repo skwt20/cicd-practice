@@ -24,3 +24,14 @@
 | 3-5. secrets を使って機密情報を扱う         | [3-5_secrets.md](./github-actions/03-advanced/3-5_secrets.md)                   |
 | 3-6. job 間で値を受け渡す                   | [3-6_job-output.md](./github-actions/03-advanced/3-6_job-output.md)             |
 | 3-7. artifact を保存する                    | [3-7_artifact.md](./github-actions/03-advanced/3-7_artifact.md)                 |
+
+### Step 4: 実践編（CI）
+
+| プラクティス                                    | 解答                                                                |
+| ----------------------------------------------- | ------------------------------------------------------------------- |
+| 4-2. CI から Terraform を実行できるようにする   | [4-2_run-terraform.md](./github-actions/04-ci/4-2_run-terraform.md) |
+| 4-3. terraform fmt でフォーマットを確認する     | [4-3_fmt.md](./github-actions/04-ci/4-3_fmt.md)                     |
+| 4-4. terraform init / validate で構成を検証する | [4-4_validate.md](./github-actions/04-ci/4-4_validate.md)           |
+| 4-5. terraform plan で変更内容を確認する        | [4-5_plan.md](./github-actions/04-ci/4-5_plan.md)                   |
+| 4-6. Pull Request で CI を実行する              | [4-6_pr-trigger.md](./github-actions/04-ci/4-6_pr-trigger.md)       |
+| 4-7. plan 結果を artifact として保存する        | [4-7_artifact.md](./github-actions/04-ci/4-7_artifact.md)           |

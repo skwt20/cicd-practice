@@ -26,3 +26,7 @@ jobs:
 - main ブランチの場合は `github.ref == 'refs/heads/main'` という条件になります。
 - main 以外のブランチで手動実行すると `Run on main` の step はスキップされます。
 - main ブランチで手動実行すると `Run on main` の step が実行されます。
+
+---
+
+[目次に戻る](../../README.md)

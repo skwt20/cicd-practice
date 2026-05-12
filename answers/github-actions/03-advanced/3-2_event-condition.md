@@ -30,3 +30,7 @@ jobs:
 - `pull_request` で起動した場合は `github.event_name` が `'pull_request'` になります。
 - `workflow_dispatch`（手動実行）で起動した場合は `github.event_name` が `'workflow_dispatch'` になります。
 - それぞれの `if` 条件が異なるため、イベントに応じて実行される step が切り替わります。
+
+---
+
+[目次に戻る](../../README.md)

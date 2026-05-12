@@ -37,3 +37,7 @@ jobs:
 - job2 では、needs: job1 を指定して、job1 の完了後に実行されるようにしています。
 - 後続 job では、needs.job1.outputs.message の形で job1 の output を参照できます。
 - 実行ログに Hello from job1 が表示されれば、job 間で値を受け渡せています。
+
+---
+
+[目次に戻る](../../README.md)
