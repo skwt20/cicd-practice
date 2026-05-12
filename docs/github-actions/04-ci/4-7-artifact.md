@@ -14,11 +14,11 @@
 
 ## プラクティス
 
-4-6 で作成した workflow をベースに、`4-7-artifact.yml` として新規に作成してください。
+`terraform-ci.yml` に、以下の step を追加してください。
 
 条件は次のとおりです。
 
-- 4-6 の構成に加えて、`terraform plan` の後に以下の step を追加する
+- `terraform plan` の後に以下の step を追加する
 - `actions/upload-artifact@v4` を使って `tfplan` ファイルを artifact として保存する
   - artifact の名前は `tfplan` にする
   - 保存するパスは `terraform/tfplan` にする

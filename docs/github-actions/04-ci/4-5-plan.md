@@ -11,11 +11,10 @@ CI に `plan` を組み込むことで、変更内容をレビュー前に確認
 
 ## プラクティス
 
-4-4 で作成した workflow をベースに、`4-5-plan.yml` として新規に作成してください。
+`terraform-ci.yml` に、以下の step を追加してください。
 
 条件は次のとおりです。
 
-- 4-4 の構成に加えて、以下の step を追加する
 - `terraform plan` を実行する step を追加する
   - 実行ディレクトリは `terraform/` にする
   - `bucket_name` 変数を `-var` で渡す（値は `vars.BUCKET_NAME` から参照する）

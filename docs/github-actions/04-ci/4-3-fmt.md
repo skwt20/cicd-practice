@@ -9,11 +9,10 @@
 
 ## プラクティス
 
-4-2 で作成した workflow をベースに、`4-3-fmt.yml` として新規に作成してください。
+4-2 で作成した `terraform-ci.yml` に、以下の step を追加してください。
 
 条件は次のとおりです。
 
-- 4-2 の構成に加えて、以下の step を追加する
 - `terraform fmt -check` を実行する step を追加する
   - 実行ディレクトリは `terraform/` にする
 

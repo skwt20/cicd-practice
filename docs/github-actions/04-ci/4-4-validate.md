@@ -8,11 +8,10 @@
 
 ## プラクティス
 
-4-3 で作成した workflow をベースに、`4-4-validate.yml` として新規に作成してください。
+`terraform-ci.yml` に、以下の step を追加してください。
 
 条件は次のとおりです。
 
-- 4-3 の構成に加えて、以下の step を追加する
 - `terraform init` を実行する step を追加する
   - 実行ディレクトリは `terraform/` にする
 - `terraform validate` を実行する step を追加する
