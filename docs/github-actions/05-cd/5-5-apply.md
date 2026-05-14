@@ -20,11 +20,7 @@ Step 4（4-7）では `tfplan` ファイルを artifact として保存しまし
 
 条件は次のとおりです。
 
-- `actions/checkout@v4` で checkout する
-- `aws-actions/configure-aws-credentials@v4` で AWS 認証を設定する（`plan` job と同じ設定でよい）
-- `hashicorp/setup-terraform@v3` で Terraform をセットアップする（`plan` job と同じ設定でよい）
-- `terraform init` を実行する
-  - `working-directory` は `terraform` にする
+- `plan` job と同様に checkout・AWS 認証・Terraform セットアップ・`terraform init` を行う
 - `actions/download-artifact@v4` を使って `tfplan` artifact をダウンロードする
   - artifact の名前は `tfplan` にする
   - ダウンロード先は `terraform` ディレクトリにする

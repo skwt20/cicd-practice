@@ -38,4 +38,4 @@ job を分けることで、plan の後に承認フローを挟んだり、apply
 
 ---
 
-次のプラクティス：[5-3. Pull Request 時は apply をスキップする](./5-3-skip-on-pr.md)
+次のプラクティス：[5-3. apply の実行条件を制御する](./5-3-skip-on-pr.md)
