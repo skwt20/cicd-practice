@@ -1,4 +1,4 @@
-# 5-3. Pull Request 時は apply をスキップする
+# 5-3. apply の実行条件を制御する
 
 > **前提**: この課題は [5-2. plan と apply を job 分割する](./5-2-job-split.md) を完了していることを前提とします。
 
@@ -13,13 +13,15 @@ CD では、`push` や `workflow_dispatch` のタイミングで apply を実行
 条件は次のとおりです。
 
 - `apply` job は `pull_request` イベントのときは実行しない
+- `apply` job は main ブランチからの実行時のみ実行する
 - `push` または `workflow_dispatch` のときだけ実行する
 
 > ヒント:
 >
 > - job レベルに `if` を指定できます
 > - `github.event_name` でイベント種別を参照できます（Step 3（3-2）参照）
-> - 「pull_request でないとき」という条件で書くと、push と workflow_dispatch の両方をまとめて扱えます
+> - `github.ref_name` で現在のブランチ名を参照できます
+> - 複数の条件を組み合わせるには `&&` や `||` を使用します
 
 必要に応じて、次の公式ドキュメントを参照してください。
 
@@ -31,8 +33,11 @@ CD では、`push` や `workflow_dispatch` のタイミングで apply を実行
 - main ブランチへの Pull Request を作成する
   - `plan` job は実行されることを確認する
   - `apply` job はスキップされることを確認する
-- Actions から手動実行する（または main ブランチに push する）
+- main ブランチに push する（または Actions から main ブランチで手動実行する）
   - `plan` job と `apply` job の両方が実行されることを確認する
+- main 以外のブランチから Actions で手動実行する
+  - `plan` job は実行されることを確認する
+  - `apply` job はスキップされることを確認する
 
 ---
 

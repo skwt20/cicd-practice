@@ -58,16 +58,18 @@ jobs:
   apply:
     runs-on: ubuntu-latest
     needs: plan
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && github.ref_name == 'main'
     steps:
       - run: echo "apply"
 ```
 
 ## 解説
 
-- `if: github.event_name != 'pull_request'` を job レベルに指定することで、`pull_request` イベントのときは `apply` job 全体がスキップされます（Step 3（3-1、3-2）の応用）。
-- `push` や `workflow_dispatch` のときは条件が真になるため、`apply` job は実行されます。
-- `needs: plan` との組み合わせにより、plan が成功した後かつ pull_request でない場合にのみ apply が実行されます。
+- `if: github.event_name != 'pull_request' && github.ref_name == 'main'` により、以下の場合に apply が実行されます：
+  - イベントが `pull_request` ではない（つまり `push` または `workflow_dispatch`）
+  - かつ現在のブランチが `main`
+- この条件により、main 以外のブランチからの `workflow_dispatch` での実行時にも apply はスキップされます。
+- `needs: plan` との組み合わせにより、plan が成功した後かつ条件を満たす場合にのみ apply が実行されます。
 
 ---
 

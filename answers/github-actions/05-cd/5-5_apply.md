@@ -58,7 +58,7 @@ jobs:
   apply:
     runs-on: ubuntu-latest
     needs: plan
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && github.ref_name == 'main'
     environment: production
     steps:
       - uses: actions/checkout@v4
@@ -84,6 +84,7 @@ jobs:
 
 ## 解説
 
+- `if: github.event_name != 'pull_request' && github.ref_name == 'main'` により、PR を除き、main ブランチからの実行時のみ apply が実行されます。`workflow_dispatch` で main 以外のブランチから実行した場合も apply はスキップされます。
 - `apply` job は `plan` job とは別のランナーで実行されるため、`actions/download-artifact@v4` を使って `tfplan` artifact を取得しています。
 - `path: terraform` を指定することで、`tfplan` ファイルが `terraform/` ディレクトリに配置され、`terraform apply tfplan` でそのまま参照できます。
 - `terraform apply tfplan` は plan ファイルを指定して apply するため、`-auto-approve` は不要です。plan した内容だけが apply されます。

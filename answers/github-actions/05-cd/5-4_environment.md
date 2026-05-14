@@ -67,7 +67,7 @@ jobs:
   apply:
     runs-on: ubuntu-latest
     needs: plan
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && github.ref_name == 'main'
     environment: production
     steps:
       - run: echo "apply"
