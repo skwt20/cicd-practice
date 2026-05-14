@@ -42,6 +42,6 @@
 | ----------------------------------------------------------- | --------------------------------------------------------------- |
 | 5-1. CD workflow のトリガーを設定する                       | [5-1_trigger.md](./github-actions/05-cd/5-1_trigger.md)         |
 | 5-2. plan と apply を job 分割する                          | [5-2_job-split.md](./github-actions/05-cd/5-2_job-split.md)     |
-| 5-3. Pull Request 時は apply をスキップする                 | [5-3_skip-on-pr.md](./github-actions/05-cd/5-3_skip-on-pr.md)   |
+| 5-3. apply の実行条件を制御する                             | [5-3_skip-on-pr.md](./github-actions/05-cd/5-3_skip-on-pr.md)   |
 | 5-4. GitHub Environments で apply 前の承認を設定する        | [5-4_environment.md](./github-actions/05-cd/5-4_environment.md) |
 | 5-5. plan 結果をダウンロードして terraform apply を実行する | [5-5_apply.md](./github-actions/05-cd/5-5_apply.md)             |
