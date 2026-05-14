@@ -1,13 +1,16 @@
-# 解答例：4-6. Pull Request で CI を実行する
+# 解答例：5-2. plan と apply を job 分割する
 
 ## 解答
 
 `.github/workflows/terraform.yml` を以下のように編集します。
 
 ```yaml
-name: terraform ci
+name: terraform ci/cd
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -18,7 +21,7 @@ permissions:
   contents: read
 
 jobs:
-  terraform:
+  plan:
     runs-on: ubuntu-latest
     steps:
       - name: Manual execution notice
@@ -46,13 +49,24 @@ jobs:
       - name: Terraform plan
         run: terraform plan -var="bucket_name=${{ vars.BUCKET_NAME }}" -out=tfplan
         working-directory: terraform
+      - name: Upload plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan
+          path: terraform/tfplan
+
+  apply:
+    runs-on: ubuntu-latest
+    needs: plan
+    steps:
+      - run: echo "apply"
 ```
 
 ## 解説
 
-- `pull_request` に `branches: [main]` を指定することで、main ブランチへの PR のときだけ CI が実行されます（Step 3（3-3）のブランチ条件の応用）。
-- `workflow_dispatch` も残すことで、手動実行でも CI を確認できます。
-- `if: github.event_name == 'workflow_dispatch'` によって、手動実行時だけ `manual execution` が表示されます（Step 3（3-2）のイベント条件の応用）。
+- 既存の `terraform` job を `plan` に名前変更しました。内容は Step 4 の完成形と同じです。
+- `apply` job を新たに追加し、`needs: plan` で plan の完了後に実行されるようにしました（Step 2（2-6）の応用）。
+- `apply` job の steps は現時点では `echo "apply"` のみです。実際の apply 処理は 5-5 で実装します。
 
 ---
 

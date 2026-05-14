@@ -1,13 +1,16 @@
-# 解答例：4-6. Pull Request で CI を実行する
+# 解答例：5-1. CD workflow のトリガーを設定する
 
 ## 解答
 
 `.github/workflows/terraform.yml` を以下のように編集します。
 
 ```yaml
-name: terraform ci
+name: terraform ci/cd
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -46,13 +49,18 @@ jobs:
       - name: Terraform plan
         run: terraform plan -var="bucket_name=${{ vars.BUCKET_NAME }}" -out=tfplan
         working-directory: terraform
+      - name: Upload plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan
+          path: terraform/tfplan
 ```
 
 ## 解説
 
-- `pull_request` に `branches: [main]` を指定することで、main ブランチへの PR のときだけ CI が実行されます（Step 3（3-3）のブランチ条件の応用）。
-- `workflow_dispatch` も残すことで、手動実行でも CI を確認できます。
-- `if: github.event_name == 'workflow_dispatch'` によって、手動実行時だけ `manual execution` が表示されます（Step 3（3-2）のイベント条件の応用）。
+- `push: branches: [main]` を追加することで、main ブランチへのマージ（push）をきっかけに workflow が実行されるようになります。
+- `pull_request` と `workflow_dispatch` はそのまま残します。これにより、PR 時の CI と手動実行の両方も引き続き動作します。
+- この時点ではトリガーの追加のみで、job の内容は Step 4 の完成形と同じです。
 
 ---
 

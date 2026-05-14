@@ -2,7 +2,7 @@
 
 ## 解答
 
-`.github/workflows/terraform-ci.yml` を以下のように編集します。
+`.github/workflows/terraform.yml` を以下のように編集します。
 
 ```yaml
 name: terraform ci

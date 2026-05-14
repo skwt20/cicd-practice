@@ -2,7 +2,7 @@
 
 ## 解答
 
-`.github/workflows/terraform-ci.yml` を以下の内容で新規に作成します。
+`.github/workflows/terraform.yml` を以下の内容で新規に作成します。
 
 ```yaml
 name: terraform ci

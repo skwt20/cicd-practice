@@ -10,7 +10,7 @@
 
 ## プラクティス
 
-`terraform-ci.yml` に、以下の step を追加してください。
+`terraform.yml` に、以下の step を追加してください。
 
 条件は次のとおりです。
 
