@@ -33,10 +33,10 @@ Step 4（4-7）では `tfplan` ファイルを artifact として保存しまし
 > - `path` にダウンロード先のディレクトリを指定します
 > - `terraform apply <planfile>` は、指定した plan ファイルの内容だけを apply します。確認プロンプトは表示されません
 
-必要に応じて、次の公式ドキュメントを参照してください。
-
-- [Store and share data with workflow artifacts](https://docs.github.com/en/actions/tutorials/store-and-share-data)
-- [Terraform apply - Passing a plan file](https://developer.hashicorp.com/terraform/cli/commands/apply#passing-a-plan-file)
+> 必要に応じて、次の公式ドキュメントを参照してください。
+>
+> - [Store and share data with workflow artifacts](https://docs.github.com/en/actions/tutorials/store-and-share-data)
+> - [Terraform apply - Passing a plan file](https://developer.hashicorp.com/terraform/cli/commands/apply#passing-a-plan-file)
 
 ## 確認
 

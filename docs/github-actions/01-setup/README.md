@@ -10,7 +10,7 @@
 
 Step 2 以降では、このリポジトリに workflow ファイルを追加し、push や Pull Request をきっかけに GitHub Actions を実行します。
 
-このステップでは、作業用のリポジトリを 1 つ用意してください。
+このステップでは、作業用のリポジトリを 1 つ用意してください。リポジトリは **Public** で作成してください。
 
 - [GitHub で新しいリポジトリを作成する](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)
 
@@ -88,7 +88,7 @@ AWS マネジメントコンソールで IAM を開き、OIDC プロバイダー
 
 main ブランチだけに制限したい場合は、`sub` を次のように絞れます。
 
-```
+```text
 repo:YOUR_GITHUB_USER_OR_ORG/YOUR_REPOSITORY_NAME:ref:refs/heads/main
 ```
 
@@ -96,8 +96,7 @@ repo:YOUR_GITHUB_USER_OR_ORG/YOUR_REPOSITORY_NAME:ref:refs/heads/main
 
 Step 1 では、GitHub Actions から AWS に認証できることを確認するために `aws sts get-caller-identity` を実行します。
 
-このステップでは、まず AWS に接続できることを確認できれば十分です。  
-Terraform の実行に必要な権限は、後続のステップで必要に応じて追加してください。
+また、後続のステップで Terraform が S3 バケットを作成するため、`s3:CreateBucket` 権限を付与してください。
 
 参考:
 

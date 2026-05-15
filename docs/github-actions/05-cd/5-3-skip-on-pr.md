@@ -21,10 +21,10 @@ CD では、`push` や `workflow_dispatch` のタイミングで apply を実行
 > - イベント種別やブランチ名は、それぞれ対応するコンテキスト変数で参照できます（Step 3（3-2）参照）
 > - 複数の条件を組み合わせるには `&&` や `||` を使用します
 
-必要に応じて、次の公式ドキュメントを参照してください。
-
-- [Expressions](https://docs.github.com/en/actions/concepts/workflows-and-actions/expressions)
-- [Context variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs)
+> 必要に応じて、次の公式ドキュメントを参照してください。
+>
+> - [Expressions](https://docs.github.com/en/actions/concepts/workflows-and-actions/expressions)
+> - [Context variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs)
 
 ## 確認
 

@@ -25,9 +25,9 @@ job を分けることで、plan の後に承認フローを挟んだり、apply
 >
 > - job の分割と `needs` の使い方は Step 2（2-5、2-6）を参照してください
 
-必要に応じて、次の公式ドキュメントを参照してください。
-
-- [Using jobs in a workflow](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow)
+> 必要に応じて、次の公式ドキュメントを参照してください。
+>
+> - [Using jobs in a workflow](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow)
 
 ## 確認
 
