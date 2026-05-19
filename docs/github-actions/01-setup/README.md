@@ -12,6 +12,9 @@ Step 2 以降では、このリポジトリに workflow ファイルを追加し
 
 このステップでは、作業用のリポジトリを 1 つ用意してください。リポジトリは **Public** で作成してください。
 
+> **注意**: Public リポジトリの内容は誰でも閲覧できます。AWS のアクセスキーやシークレットなどの機密情報を、ファイルの中に直接書き込んでコミットしないでください。  
+> また、プラクティスが完了したらリポジトリを削除するか Private に変更することを検討してください。
+
 - [GitHub で新しいリポジトリを作成する](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)
 
 ## GitHub への接続
@@ -166,6 +169,8 @@ jobs:
   - 例: `ap-northeast-1`
 - `<ROLE_TO_ASSUME>`
   - 例: `arn:aws:iam::123456789012:role/github-actions-oidc-role`
+
+> **注意**: ロール ARN には AWS アカウント ID が含まれます。Public リポジトリにそのまま push することが気になる場合は、確認後に ARN をプレースホルダに戻してからコミットしてください。Step 4 以降では、ARN を GitHub Secrets に移して参照する構成に変更します。
 
 ## 確認事項
 

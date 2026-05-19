@@ -32,6 +32,7 @@ Step 4（4-7）では `tfplan` ファイルを artifact として保存しまし
 > - `download-artifact` は `upload-artifact` とは逆に、保存した artifact を取得するための Action です
 > - `path` にダウンロード先のディレクトリを指定します
 > - `terraform apply <planfile>` は、指定した plan ファイルの内容だけを apply します。確認プロンプトは表示されません
+> - `apply` job でも `terraform init` が必要です。ランナーは毎回クリーンな状態で起動するため、`plan` job で初期化した `.terraform/` ディレクトリは引き継がれません
 
 > 必要に応じて、次の公式ドキュメントを参照してください。
 >
@@ -46,7 +47,7 @@ Step 4（4-7）では `tfplan` ファイルを artifact として保存しまし
 - 承認を行い、`apply` job が実行されることを確認する
   - artifact のダウンロードが実行されることを確認する
   - `terraform apply` が実行されることを確認する
-  - apply が完了し、AWS リソースが作成されることを確認する
+  - apply が完了し、S3 に `BUCKET_NAME` で指定したバケットが作成されていることを確認する
 
 ---
 
