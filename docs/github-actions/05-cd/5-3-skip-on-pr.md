@@ -2,7 +2,7 @@
 
 > **前提**: この課題は [5-2. plan と apply を job 分割する](./5-2-job-split.md) を完了していることを前提とします。
 
-CD では、`push` や `workflow_dispatch` のタイミングで apply を実行したいですが、Pull Request 時は plan だけを確認できれば十分です。apply が PR ごとに実行されてしまうと、意図しないインフラ変更が発生するリスクがあります。
+CD では、main ブランチへの `push` や `workflow_dispatch` のタイミングで apply を実行したいですが、Pull Request 時は plan だけを確認できれば十分です。apply が PR ごとに実行されてしまうと、意図しないインフラ変更が発生するリスクがあります。また、`workflow_dispatch` では任意のブランチから手動実行できるため、`push` と同様に apply は main ブランチのときだけ実行するよう制限する必要があります。
 
 この課題では、Step 3（3-1、3-2）で学んだ `if` とイベント条件を使って、Pull Request イベントのときだけ `apply` job をスキップするようにします。
 

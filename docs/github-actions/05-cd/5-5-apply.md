@@ -2,9 +2,9 @@
 
 > **前提**: この課題は [5-4. GitHub Environments で apply 前の承認を設定する](./5-4-environment.md) を完了していることを前提とします。
 
-`apply` job は `plan` job とは別のランナーで実行されるため、`plan` job で生成した `tfplan` ファイルをそのまま参照することはできません。
+`apply` job は `plan` job とは別のランナーで実行されるため、`plan` job で生成した `tfplan` ファイルをそのまま参照することはできません。job をまたいでファイルを渡すには、一度 artifact として保存し、別の job でダウンロードする必要があります。
 
-Step 4（4-7）では `tfplan` ファイルを artifact として保存しました。この課題では、`actions/download-artifact` を使ってその artifact を取得し、`terraform apply` に渡します。
+Step 4（4-7）ではその準備として `tfplan` ファイルを artifact に保存しました。この課題では、`actions/download-artifact` を使ってその artifact を取得し、`terraform apply` に渡します。
 
 これにより、**plan した内容だけを apply する**という安全な構成を実現できます。
 
