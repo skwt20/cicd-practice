@@ -1,0 +1,54 @@
+# 5-5. plan 結果をダウンロードして terraform apply を実行する
+
+> **前提**: この課題は [5-4. GitHub Environments で apply 前の承認を設定する](./5-4-environment.md) を完了していることを前提とします。
+
+`apply` job は `plan` job とは別のランナーで実行されるため、`plan` job で生成した `tfplan` ファイルをそのまま参照することはできません。job をまたいでファイルを渡すには、一度 artifact として保存し、別の job でダウンロードする必要があります。
+
+Step 4（4-7）ではその準備として `tfplan` ファイルを artifact に保存しました。この課題では、`actions/download-artifact` を使ってその artifact を取得し、`terraform apply` に渡します。
+
+これにより、**plan した内容だけを apply する**という安全な構成を実現できます。
+
+> 補足:
+>
+> このプラクティスでは学習のため `tfplan` を artifact として保存しています。  
+> 実運用では、plan ファイルに機密値が含まれる可能性があるため、artifact の保存期間、アクセス権限、リポジトリの公開範囲に注意してください。  
+> 特に public repository で本番用の plan ファイルを扱う構成は避けるべきです。
+
+## プラクティス
+
+`apply` job の steps を、以下の条件を満たすように実装してください。
+
+条件は次のとおりです。
+
+- `plan` job と同様に checkout・AWS 認証・Terraform セットアップ・`terraform init` を行う
+- `actions/download-artifact@v4` を使って `tfplan` artifact をダウンロードする
+  - artifact の名前は `tfplan` にする
+  - ダウンロード先は `terraform` ディレクトリにする
+- `terraform apply tfplan` を実行する
+  - `working-directory` は `terraform` にする
+
+> ヒント:
+>
+> - `download-artifact` は `upload-artifact` とは逆に、保存した artifact を取得するための Action です
+> - `path` にダウンロード先のディレクトリを指定します
+> - `terraform apply <planfile>` は、指定した plan ファイルの内容だけを apply します。確認プロンプトは表示されません
+> - `apply` job でも `terraform init` が必要です。ランナーは毎回クリーンな状態で起動するため、`plan` job で初期化した `.terraform/` ディレクトリは引き継がれません
+
+> 必要に応じて、次の公式ドキュメントを参照してください。
+>
+> - [Store and share data with workflow artifacts](https://docs.github.com/en/actions/tutorials/store-and-share-data)
+> - [Terraform apply - Passing a plan file](https://developer.hashicorp.com/terraform/cli/commands/apply#passing-a-plan-file)
+
+## 確認
+
+- main ブランチに push する（または Actions から手動実行する）
+- `plan` job が正常に完了することを確認する
+- `apply` job が承認待ちの状態で止まることを確認する
+- 承認を行い、`apply` job が実行されることを確認する
+  - artifact のダウンロードが実行されることを確認する
+  - `terraform apply` が実行されることを確認する
+  - apply が完了し、S3 に `BUCKET_NAME` で指定したバケットが作成されていることを確認する
+
+---
+
+[Step 5 トップに戻る](./README.md)

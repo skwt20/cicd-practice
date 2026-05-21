@@ -1,13 +1,25 @@
-# 解答例：4-6. Pull Request で CI を実行する
+# 解答例：5-4. GitHub Environments で apply 前の承認を設定する
 
 ## 解答
+
+### 1. GitHub Environments の設定
+
+リポジトリの **Settings > Environments > New environment** から Environment を作成します。
+
+- Environment 名: `production`
+- **Required reviewers** に自分自身を追加して保存します
+
+### 2. workflow ファイルの編集
 
 `.github/workflows/terraform.yml` を以下のように編集します。
 
 ```yaml
-name: terraform ci
+name: terraform ci/cd
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -18,7 +30,7 @@ permissions:
   contents: read
 
 jobs:
-  terraform:
+  plan:
     runs-on: ubuntu-latest
     steps:
       - name: Manual execution notice
@@ -46,13 +58,26 @@ jobs:
       - name: Terraform plan
         run: terraform plan -var="bucket_name=${{ vars.BUCKET_NAME }}" -out=tfplan
         working-directory: terraform
+      - name: Upload plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan
+          path: terraform/tfplan
+
+  apply:
+    runs-on: ubuntu-latest
+    needs: plan
+    if: github.event_name != 'pull_request' && github.ref_name == 'main'
+    environment: production
+    steps:
+      - run: echo "apply"
 ```
 
 ## 解説
 
-- `pull_request` に `branches: [main]` を指定することで、main ブランチへの PR のときだけ CI が実行されます（Step 3（3-3）のブランチ条件の応用）。
-- `workflow_dispatch` も残すことで、手動実行でも CI を確認できます。
-- `if: github.event_name == 'workflow_dispatch'` によって、手動実行時だけ `manual execution` が表示されます（Step 3（3-2）のイベント条件の応用）。
+- `environment: production` を job レベルに指定することで、`apply` job が開始される前に Environment の承認フローが実行されます。
+- Required reviewers に設定したユーザーが承認するまで、job は待機状態になります。
+- GitHub Environments の設定は、GitHub 側の UI での操作が必要です。workflow ファイルだけでは承認フローは完結しません。
 
 ---
 

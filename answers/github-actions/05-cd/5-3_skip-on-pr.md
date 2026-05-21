@@ -1,13 +1,16 @@
-# 解答例：4-6. Pull Request で CI を実行する
+# 解答例：5-3. apply の実行条件を制御する
 
 ## 解答
 
 `.github/workflows/terraform.yml` を以下のように編集します。
 
 ```yaml
-name: terraform ci
+name: terraform ci/cd
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -18,7 +21,7 @@ permissions:
   contents: read
 
 jobs:
-  terraform:
+  plan:
     runs-on: ubuntu-latest
     steps:
       - name: Manual execution notice
@@ -46,13 +49,27 @@ jobs:
       - name: Terraform plan
         run: terraform plan -var="bucket_name=${{ vars.BUCKET_NAME }}" -out=tfplan
         working-directory: terraform
+      - name: Upload plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan
+          path: terraform/tfplan
+
+  apply:
+    runs-on: ubuntu-latest
+    needs: plan
+    if: github.event_name != 'pull_request' && github.ref_name == 'main'
+    steps:
+      - run: echo "apply"
 ```
 
 ## 解説
 
-- `pull_request` に `branches: [main]` を指定することで、main ブランチへの PR のときだけ CI が実行されます（Step 3（3-3）のブランチ条件の応用）。
-- `workflow_dispatch` も残すことで、手動実行でも CI を確認できます。
-- `if: github.event_name == 'workflow_dispatch'` によって、手動実行時だけ `manual execution` が表示されます（Step 3（3-2）のイベント条件の応用）。
+- `if: github.event_name != 'pull_request' && github.ref_name == 'main'` により、以下の場合に apply が実行されます：
+  - イベントが `pull_request` ではない（つまり `push` または `workflow_dispatch`）
+  - かつ現在のブランチが `main`
+- この条件により、main 以外のブランチからの `workflow_dispatch` での実行時にも apply はスキップされます。
+- `needs: plan` との組み合わせにより、plan が成功した後かつ条件を満たす場合にのみ apply が実行されます。
 
 ---
 

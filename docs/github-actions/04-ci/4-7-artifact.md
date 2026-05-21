@@ -14,7 +14,7 @@
 
 ## プラクティス
 
-`terraform-ci.yml` に、以下の step を追加してください。
+`terraform.yml` に、以下の step を追加してください。
 
 条件は次のとおりです。
 
@@ -41,3 +41,5 @@
 ---
 
 [Step 4 トップに戻る](./README.md)
+
+次のステップ：[Step 5: 実践編（CD）](../05-cd/README.md)

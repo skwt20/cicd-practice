@@ -14,7 +14,7 @@ CI（継続的インテグレーション）とは、コードの変更をリポ
 
 > 進め方：
 >
-> 4-2 で `terraform-ci.yml` を新規作成し、4-3 以降はその workflow に step を追加・編集しながら進めてください。
+> 4-2 で `terraform.yml` を新規作成し、4-3 以降はその workflow に step を追加・編集しながら進めてください。
 > Terraform コードは、このリポジトリの `terraform/` ディレクトリを使います。
 
 このプラクティスでは、Terraform backend は local backend を使用します。  
