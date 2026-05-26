@@ -24,6 +24,8 @@ Self-hosted runner は、次のような場合に使用されます。
 - 独自のソフトウェアや設定が必要な環境で実行したい
 - コスト面で GitHub-hosted runner の無料枠では足りない
 
+なお、実際のプロジェクトでは物理マシンや VM のほかに、Kubernetes 上で runner を管理する [Actions Runner Controller (ARC)](https://docs.github.com/en/actions/concepts/runners/actions-runner-controller) や、[AWS CodeBuild との連携](https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/action-runner-overview.html) が採用されることもあります。大規模な環境や AWS を中心に構成されたプロジェクトでは、こうした選択肢も検討してみてください。
+
 ## セキュリティ上の注意点
 
 **Self-hosted runner を public リポジトリに登録することは推奨されません。**

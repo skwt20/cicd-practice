@@ -32,7 +32,7 @@ jobs:
 - `runs-on: ubuntu-latest` を `runs-on: self-hosted` に変更するだけで、登録した Self-hosted runner 上で job が実行されます
 - `hostname` の出力が登録したマシンのホスト名になっていることで、GitHub-hosted runner ではなく Self-hosted runner で実行されていることを確認できます
 - `RUNNER_OS` の値は Self-hosted runner のOSに応じた値（例: `Linux`）が出力されます。6-2 の結果と比較してみてください
-- `lsb_release -a` は Ubuntu 系以外の OS では使えない場合があります。その場合は `uname -a` などに読み替えてください
+- `cat /etc/os-release` は、多くの Linux ディストリビューションで OS 名やバージョンを確認するために使用できます。macOS や Windows など Linux 以外のOSを使用する場合は、利用するOSに応じたコマンドに読み替えてください
 
 ---
 
