@@ -36,8 +36,7 @@ GitHub の画面に、Runner のダウンロード・設定・起動に必要な
 - **Additional labels**: そのまま Enter（デフォルト）
 - **Work folder**: そのまま Enter（デフォルト）
 
-> ラベルを指定しない場合、runner には `self-hosted` ラベルのみが付与されます。  
-> 複数の runner を管理する場合は、ここで任意のラベル（例: `linux`、`prod`）を追加し、workflow の `runs-on` でそのラベルを指定することで、実行先の runner を区別できます。
+> **Additional labels について**: ラベルを指定しない場合、runner には `self-hosted` ラベルのみが付与されます。複数の runner を管理する場合は、ここで任意のラベル（例: `linux`、`prod`）を追加し、workflow の `runs-on` でそのラベルを指定することで、実行先の runner を区別できます。
 
 ### 4. Runner を起動する
 
