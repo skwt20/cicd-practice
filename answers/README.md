@@ -45,3 +45,10 @@
 | 5-3. apply の実行条件を制御する                             | [5-3_skip-on-pr.md](./github-actions/05-cd/5-3_skip-on-pr.md)   |
 | 5-4. GitHub Environments で apply 前の承認を設定する        | [5-4_environment.md](./github-actions/05-cd/5-4_environment.md) |
 | 5-5. plan 結果をダウンロードして terraform apply を実行する | [5-5_apply.md](./github-actions/05-cd/5-5_apply.md)             |
+
+### Step 6: Runner 編
+
+| プラクティス                                   | 解答                                                                        |
+| ---------------------------------------------- | --------------------------------------------------------------------------- |
+| 6-2. GitHub-hosted runner で環境を確認する     | [6-2_github-hosted.md](./github-actions/06-runner/6-2_github-hosted.md)     |
+| 6-5. Self-hosted runner で workflow を実行する | [6-5_self-hosted-run.md](./github-actions/06-runner/6-5_self-hosted-run.md) |

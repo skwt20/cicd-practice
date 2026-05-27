@@ -52,3 +52,5 @@ Step 4（4-7）ではその準備として `tfplan` ファイルを artifact に
 ---
 
 [Step 5 トップに戻る](./README.md)
+
+次のステップ：[Step 6: Runner 編](../06-runner/README.md)
