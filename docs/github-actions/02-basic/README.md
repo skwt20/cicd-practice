@@ -68,7 +68,7 @@ GitHub Actions の job は、指定した実行環境で動作します。
 
 実行環境は大きく「GitHub 管理」と「自己管理」の 2 種類があります。
 
-- **GitHub Hosted Runner**（GitHub 管理）：GitHub が提供・管理する環境です。`ubuntu-latest` や `windows-latest` などから選べます。詳細は [Choosing GitHub-hosted runners](https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/choosing-github-hosted-runners) を参照してください。
+- **GitHub Hosted Runner**（GitHub 管理）：GitHub が提供・管理する環境です。`ubuntu-latest` や `windows-latest` などから選べます。詳細は [Choosing the runner for a job](https://docs.github.com/ja/actions/how-tos/write-workflows/choose-where-workflows-run/choose-the-runner-for-a-job) を参照してください。
 - **Self Hosted Runner**（自己管理）：自分で用意・管理する環境です。こちらについては Step 6 にて扱います。
 
 この課題では、まず `runs-on` を使って実行環境を指定し、workflow を実行できる状態にします。

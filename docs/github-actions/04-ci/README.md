@@ -20,6 +20,8 @@ CI（継続的インテグレーション）とは、コードの変更をリポ
 このプラクティスでは、Terraform backend は local backend を使用します。  
 S3 backend などの remote backend は扱わず、CI 上で Terraform の `fmt` / `validate` / `plan` を実行する流れを確認することに集中します。
 
+> **注意**: このステップは `plan` までを対象とします。local backend 利用時の再実行に関する注意点（`apply` 実行時の挙動）は Step 5 で案内します。
+
 ## プラクティス一覧
 
 | #   | タイトル                                                           |

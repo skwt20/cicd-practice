@@ -23,6 +23,8 @@ Step 2 以降では、このリポジトリに workflow ファイルを追加し
 
 接続方法は HTTPS でも SSH でも構いませんが、継続して利用するなら SSH 接続を設定しておくと扱いやすいです。GitHub Docs には SSH 接続の設定や、ローカルのコードを GitHub に追加する方法がまとまっています。
 
+> **注意**: 社内ネットワークやプロキシ設定などで SSH 通信が制限されている環境では、SSH で GitHub に接続できない場合があります。その場合は HTTPS 接続を利用してください。
+
 - [GitHub へ SSH 接続する](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 - [SSH 接続を確認する](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection)
 - [ローカルのコードを GitHub に追加する](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
@@ -34,12 +36,16 @@ AWS 側では、まず GitHub の OIDC プロバイダーを IAM に登録し、
 
 ### OIDC プロバイダーの作成
 
+OIDC（OpenID Connect）は、GitHub Actions が AWS に安全に認証するための仕組みです。長期的なアクセスキーを GitHub に保存せず、実行時に発行される短時間のトークンを使って認証できます。
+
 AWS マネジメントコンソールで IAM を開き、OIDC プロバイダーを作成してください。
 
 設定する値は次のとおりです。
 
 - プロバイダー URL: `https://token.actions.githubusercontent.com`
 - Audience: `sts.amazonaws.com`
+
+> **注意**: GitHub 連携用の OIDC プロバイダー（`https://token.actions.githubusercontent.com`）は、同じ AWS アカウント内で 1 つ作成されていれば利用できます。作成時に `already exists` エラーが出る場合は、既存の OIDC プロバイダーをそのまま利用してください。検証環境のように AWS アカウントを共用している場合は、このケースがよくあります。
 
 参考:
 

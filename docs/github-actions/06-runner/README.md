@@ -1,7 +1,5 @@
 # Step 6: Runner 編
 
-> **前提**: このステップは [Step 2: 基礎編](../02-basic/README.md) を完了していることを前提とします。
-
 これまでのステップでは、`runs-on: ubuntu-latest` を指定して workflow を実行してきました。このステップでは、job の実行基盤である **Runner** に焦点を当てます。
 
 Runner には GitHub が管理する **GitHub-hosted runner** と、自分で用意する **Self-hosted runner** の 2 種類があります。このステップでは、それぞれの特徴を理解したうえで、Self-hosted runner を実際に導入して workflow を実行します。
