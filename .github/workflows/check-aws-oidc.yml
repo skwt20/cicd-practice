@@ -19,7 +19,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v6.1.0
         with:
-          role-to-assume: arn:aws:iam::456247443832:role/admin-terraform-role
+          role-to-assume: arn:aws:iam::456247443832:role/cicd-practice-s3admin-ito
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Verify AWS identity
