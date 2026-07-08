@@ -1,0 +1,9 @@
+name: ito test Hello workflow
+
+on: push
+
+jobs:
+  Hello:
+    steps:
+      - name: Hello World
+        run: echo "Hello, GitHub Actions"
