@@ -19,8 +19,6 @@ jobs:
     steps:
       - name: job2
         run: echo "job2"
-      - name: step2
-        run: cat ~/.aws/credentials
       - name: step3
         run: aws sts get-caller-identity
         
