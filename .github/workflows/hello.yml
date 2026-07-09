@@ -10,6 +10,3 @@ jobs:
         run: echo "step1"
       - name: step2
         run: echo "step2"
-      - name: step3
-        run: echo "step3"
-        
